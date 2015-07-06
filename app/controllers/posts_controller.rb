@@ -8,8 +8,7 @@ class PostsController < ApplicationController
     end
     
     def new
-        #builds a new post under the current user profile
-        @post=current_user.posts.build
+        @post=current_user.posts.build  #builds a new post under the current user profile
     end
     
     def create
@@ -43,6 +42,7 @@ class PostsController < ApplicationController
     end
         
     private
+    #find post grabs the post being dealt with based on the post 
     def find_post
         @post = Post.find(params[:id])
     end
