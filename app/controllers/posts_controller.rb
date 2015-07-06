@@ -8,12 +8,13 @@ class PostsController < ApplicationController
     end
     
     def new
-        @post=Post.new
+        #builds a new post under the current user profile
+        @post=current_user.posts.build
     end
     
     def create
-        @post=Post.new(post_params)
-        
+        #builds a new post under the current user profile given the post params the user has entered (i think, lol)
+        @post=current_user.posts.build(post_params)
         #if the post can be saved
         if @post.save
             #the post will be redirected to the post show page
