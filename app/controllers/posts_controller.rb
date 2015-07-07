@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     end
         
     private
-    #find post grabs the post being dealt with based on the post 
+    #Saves a version of the Post class that exists with the parameters equal to this post's ID. so for example, apollo.com/posts/2/ would mean :id == 2, so Post.find(params[:id]) would get you the 2nd instance of Post
     def find_post
         @post = Post.find(params[:id])
     end
