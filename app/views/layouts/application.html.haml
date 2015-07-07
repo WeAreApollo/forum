@@ -6,6 +6,7 @@
     <!--Lato Font from google, and the Normalize library for browser compatibility and consistency-->
     %link{ rel: 'stylesheet', href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type:'text/css'}
     %link{ rel: 'stylesheet', href: "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"}
+    %link{ rel: 'stylesheet', href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600',  type:'text/css'}
     
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -15,7 +16,9 @@
     %header.main_header.clearfix
         .wrapper
             #logo
-                %p=link_to "apollo", root_path
+                %p
+                    =link_to image_tag("logotri.png"), root_path, class: "logoimg"
+                    =link_to "apollo", root_path
             #buttons
                 - if user_signed_in?
                     = link_to "New Post", new_post_path

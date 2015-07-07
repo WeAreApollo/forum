@@ -20,6 +20,18 @@ body {
     background: #EDEFF0
 }
 
+.button{
+    color:#397CAC;
+    border:1px solid #397CAC;
+    //padding between text and the border, x and y
+    padding: .5em 1em;
+    //curvy corners of button
+    border-radius: 0.2em;
+    //removes the line under the link
+    text-decoration: none;
+    margin-right: 2%;
+}
+
 //generic settings for content everywhere
 .wrapper {
     //ensures full screen spread
@@ -38,26 +50,32 @@ body {
 }
 
 .main_header{
+    font-family: "Source Sans Pro", sans-serif;
     width: 100%;
     margin: 0 auto;
     background: white;
     #logo{
+        
         float: left;
         a{
             //logo text manip. I -
-            text-transform: uppercase;
+            text-transform: downcase;
             font-weight: 700;
             letter-spacing: -1px;
-            font-size: 1.2rem;
-            color:397CAC;
+            font-size: 1.5rem;
+            color: grey;
             text-decoration: none;
+            img{
+                max-width:50px;
+                height:auto;
+            }
            
         }
     }
     #buttons{
         float:right;
         a{
-            line-height: 60px;
+            line-height: 84px;
             background: #397CAC;
             padding: .5em 1em;
             border-radius: .2em;
@@ -78,7 +96,7 @@ body {
         //each post block in the above
         margin: 1em 0;
         padding: 1em 0;
-        border-bottom: 1px solid #D1d1d1;
+        border-bottom: 1px solid #d1d1d1;
         .title{
             //the title/link of the post
             margin:0;
@@ -103,6 +121,7 @@ body {
     background: white;
     padding: 2em 5%;
     border-radius: .5em;
+    //post t
     h1{
         font-weight: 100;
         font-size: 2em;
@@ -114,8 +133,65 @@ body {
         font-size: 0.9rem;
         font-weight: 125;
         line-height: 1.5;
-        
-        
-        
     }
-}
+    #comments{
+        .comment{
+            border-bottom: 1px solid #d1d1d1;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+            .content{
+                width: 75%;
+                float: left;
+            }
+            .buttons {
+                width: 25%; 
+                float: left;
+                
+                font-size: .8em;
+                text-align: right;
+                padding-top: 1.5em;
+                a{
+                    
+                    color:#397CAC;
+                    border:1px solid #397CAC;
+                    //padding between text and the border, x and y
+                    padding: .5em 1em;
+                    //curvy corners of button
+                    border-radius: 0.2em;
+                    //removes the line under the link
+                    text-decoration: none;
+                    margin-right: 2%;
+                }
+                
+            }
+            .comment_content{
+                margin:0;
+                padding:0;
+            }
+            .comment_author{
+                color:#397CAC;
+                margin-top:.5rem;
+                font-size:0.6em;
+                font-weight: 700;
+            }
+            
+        }
+        //submit button for forms, specifically comments tho
+        input[type="submit"]{
+            background: #397CAC;
+            border: none;
+            color: white;
+            font-weight: 100;
+            padding: .5em 1em;
+            border-radius: .2em;
+        }
+        textarea{
+            width: 100%;
+            min-height:200px;
+            border:1px solid #d1d1d1;
+            border-radius: .2em;
+            margin: 1em 0;
+            
+        }
+    }
+}//end posts content
