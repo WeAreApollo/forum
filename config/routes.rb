@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :posts do
         resources :comments
     end
-    root 'posts#index'
+    resources :pins
+    #root 'posts#index'
+    root 'pins#index'
     get 'new' => 'posts#new'
 end
