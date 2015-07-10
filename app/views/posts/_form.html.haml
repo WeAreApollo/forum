@@ -1,6 +1,21 @@
-<!--partial that renders into the new file -->
-= simple_form_for @post do |f|
-    =f.input :title
-    =f.input :content
-    =f.submit
+<!--partial that ren
+ders the form -->
+= simple_form_for @post, html: {multipart: true} do |f|
+    - if @post.errors.any?
+        #errors
+            %h2
+            = pluralize(@post.errors.count, "error")
+            prevented this post from saving
+            %ul
+                - @post.errors.full_messages.each do |msg|
+                    %li= msg    
+    .form-group
+        = f.input :title, input_html: { class: 'form-control' }
     
+    .form-group
+        = f.input :image, input_html: { class: 'form-control' }
+            
+    .form-group
+        = f.input :content, input_html: { class: 'form-control'}
+        
+    = f.button :submit, class: "btn btn-primary"

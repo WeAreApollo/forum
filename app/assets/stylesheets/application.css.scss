@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 //general stuff for the whole site
 body {
     font-family: "Lato", sans-serif;
@@ -57,8 +59,10 @@ body {
     #logo{
         
         float: left;
+        padding-top: 4%;
         a{
             //logo text manip. I -
+           
             text-transform: downcase;
             font-weight: 700;
             letter-spacing: -1px;
@@ -92,6 +96,7 @@ body {
     background: white;
     padding: 2em 5%;
     border-radius: .5em;
+    padding-top: 0;
     .post{
         //each post block in the above
         margin: 1em 0;
@@ -121,6 +126,7 @@ body {
     background: white;
     padding: 2em 5%;
     border-radius: .5em;
+    
     //post t
     h1{
         font-weight: 100;
@@ -135,6 +141,10 @@ body {
         line-height: 1.5;
     }
     #comments{
+        .count{
+            padding: 1em;
+            font-weight: bold;
+        }
         .comment{
             border-bottom: 1px solid #d1d1d1;
             padding-bottom: 1em;

@@ -20,7 +20,7 @@ class PostsController < ApplicationController
         #if the post can be saved
         if @post.save
             #the post will be redirected to the post show page
-            redirect_to @post
+            redirect_to @post, notice: "Successfully created new Post"
         else
             #will render the new form
             render 'new'
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     
     def update
         if @post.update(post_params)
-            redirect_to @post
+            redirect_to @post, notice: "pin was successfully updated"
         else
             render 'edit'
         end
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content)
+        params.require(:post).permit(:title, :content, :image)
     end
 end
 

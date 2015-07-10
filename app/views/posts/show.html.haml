@@ -1,11 +1,15 @@
 #posts_content
+    = image_tag @post.image.url(:medium)
     %h1=@post.title
     %p=@post.content
     
     #comments
         %h2
-            = @post.comments.count
-            Comments
+            %br/
+            .count
+                = @post.comments.count
+                Comments
+            %hr/
         = render @post.comments
         
         %h3 Reply to thread

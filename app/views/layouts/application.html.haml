@@ -1,5 +1,6 @@
 !!!
 %html
+<!-- SO, this runs right away, its compiled, drops the header in, and then YIELDS to the root path-->
 %head
     %title apollo
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
@@ -13,23 +14,38 @@
 
 %body
     
-    %header.main_header.clearfix
-        .wrapper
-            #logo
-                %p
-                    =link_to image_tag("logotri.png"), root_path, class: "logoimg"
-                    =link_to "apollo", root_path
-            #buttons
-                - if user_signed_in?
-                    = link_to "New Post", new_post_path
-                - else
-                    =link_to "Sign in", new_user_session_path
-                    =link_to "Sign up", new_user_registration_path
+    %nav.navbar.navbar-default
+        .container
+            .navbar-brand
+                =link_to "apollo", root_path
+            
+            - if user_signed_in?
+                %ul.nav.navbar-nav.navbar-right
+                    %li= link_to "New Post", new_post_path
+                    %li= link_to "Account", edit_user_registration_path
+                    %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+            - else
+                %ul.nav.navbar-nav.navbar-right
+                    %li=link_to "Sign in", new_user_session_path
+                    %li=link_to "Sign up", new_user_registration_path
+                    
+                    
+                    
+                    
+    - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert alert-info"
+        
+        
+        
+        
+        
+        
+        
     <!--these alerts are just for when they need to show up (not all the time, for example when youre already signed in-->
     .wrapper
         %p.notice= notice
         %p.alert= alert
-    <!-- yields to post controller-->
+    <!-- yields to root path-->
     .wrapper
         = yield
         

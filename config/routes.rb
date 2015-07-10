@@ -4,7 +4,7 @@ Rails.application.routes.draw do
         resources :comments
     end
     resources :pins
-    #root 'posts#index'
-    root 'pins#index'
+    root 'posts#index'
+    #root 'pins#index'
     get 'new' => 'posts#new'
 end

@@ -1,14 +1,10 @@
-
 #posts
-    <!--loops through through all posts the postcontroller defines and renders the following HTML-->
     -   @posts.each do |post|
-        <!--post class for each post under the post div -->
         .post
-            <!-- renders the title of the post as a link, linking to the post page. adds a class to the h2 for styling-->
+            = link_to(image_tag post.image.url(:medium))
             %h2.title=link_to post.title, post
-            <!-- timestamp and email stamp from post creator's user page. adds a class to the p for styling-->
             %p.date
-            Published at 
+            Published at
             =time_ago_in_words(post.created_at)
             by
             = post.user.email
